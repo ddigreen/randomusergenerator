@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global User Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Global User Dashboard</h1>
+            <p>Integrated Data from 4 APIs</p>
+        </header>
+
+        <button id="fetch-btn" class="main-btn">Generate Random User</button>
+        <div id="loading" class="hidden">Fetching data across the globe...</div>
+
+        <div id="dashboard" class="hidden">
+            <div class="top-section">
+                <div class="card user-card">
+                    <h2>Random User</h2>
+                    <img id="user-img" src="" alt="User Profile">
+                    <div class="info-group">
+                        <p><strong>Name:</strong> <span id="user-name"></span></p>
+                        <p><strong>Gender:</strong> <span id="user-gender"></span></p>
+                        <p><strong>Age:</strong> <span id="user-age"></span> (<span id="user-dob"></span>)</p>
+                        <p><strong>Location:</strong> <span id="user-location"></span></p>
+                        <p><strong>Address:</strong> <span id="user-address"></span></p>
+                    </div>
+                </div>
+
+                <div class="card country-card">
+                    <h2>Country & Currency</h2>
+                    <p><strong>Country:</strong> <span id="country-name"></span></p>
+                    <p><strong>Capital:</strong> <span id="country-capital"></span></p>
+                    <p><strong>Language:</strong> <span id="country-lang"></span></p>
+
+                    <hr>
+                    <h3>Exchange Rates</h3>
+                    <p>Base: 1 <span id="base-curr"></span></p>
+                    <div class="rate-box">
+                        <p>🇺🇸 <span id="rate-usd"></span> USD</p>
+                        <p>🇰🇿 <span id="rate-kzt"></span> KZT</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="news-section">
+                <h2>Local News Headlines</h2>
+                <div id="news-container" class="news-grid">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
