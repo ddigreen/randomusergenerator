@@ -4,70 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Identity Dashboard</title>
+    <title>Global Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="page-wrapper">
+    <div class="container">
 
-        <div class="dashboard-card">
+        <header>
+            <h1>User & News Dashboard</h1>
+            <button id="fetch-btn">Load New Data</button>
+        </header>
 
-            <aside class="sidebar">
-                <div class="logo">ID_VERIFIED</div>
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Fetching API Data...</p>
+        </div>
 
-                <div id="loading" class="status-msg hidden">Searching...</div>
+        <div id="content" class="hidden">
 
-                <div id="user-section" class="hidden">
-                    <img id="user-img" src="" alt="User">
-                    <h2 id="user-name">--</h2>
-                    <p class="user-subtitle"><span id="user-age">--</span> years • <span id="user-gender">--</span></p>
+            <div class="top-section">
 
-                    <div class="mini-stat">
-                        <label>RESIDENCE</label>
-                        <p id="user-address">--</p>
-                    </div>
-
-                    <div class="mini-stat">
-                        <label>DOB</label>
-                        <p id="user-dob">--</p>
-                    </div>
-                </div>
-
-                <button id="fetch-btn">GENERATE NEW IDENTITY</button>
-            </aside>
-
-            <main class="content-area hidden" id="main-content">
-
-                <div class="top-row">
-                    <div class="info-block">
-                        <span class="label">DETECTED LOCATION</span>
-                        <h1 id="country-name">--</h1>
-                        <p id="country-capital">Capital City</p>
-                    </div>
-                    <div class="rate-block">
-                        <span class="label">EXCHANGE RATE (<span id="base-curr">--</span>)</span>
-                        <div class="rate-grid">
-                            <div class="rate-item">
-                                <span>USD</span>
-                                <strong id="rate-usd">--</strong>
-                            </div>
-                            <div class="rate-item">
-                                <span>KZT</span>
-                                <strong id="rate-kzt">--</strong>
-                            </div>
-                        </div>
+                <div class="card user-card">
+                    <img id="user-img" src="" alt="Profile">
+                    <div class="user-info">
+                        <h2 id="user-name">--</h2>
+                        <p class="meta">Age: <span id="user-age">--</span> | Gender: <span id="user-gender">--</span>
+                        </p>
+                        <p class="location">📍 <span id="country-name">--</span></p>
                     </div>
                 </div>
 
-                <div class="news-section">
-                    <h3>LOCAL HEADLINES</h3>
-                    <div id="news-container" class="news-list">
+                <div class="card stats-card">
+                    <h3>Country Data</h3>
+                    <div class="stat-row">
+                        <span>Capital:</span>
+                        <strong id="country-capital">--</strong>
+                    </div>
+                    <div class="stat-row">
+                        <span>Currency:</span>
+                        <strong id="base-curr">--</strong>
+                    </div>
+                    <div class="exchange-box">
+                        <p>USD: <strong id="rate-usd">--</strong></p>
+                        <p>KZT: <strong id="rate-kzt">--</strong></p>
                     </div>
                 </div>
+            </div>
 
-            </main>
+            <div class="news-section">
+                <h3>Top Headlines</h3>
+                <div id="news-grid" class="grid-container">
+                </div>
+            </div>
+
         </div>
     </div>
 
