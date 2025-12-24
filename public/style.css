@@ -1,117 +1,273 @@
+/* MODERN MINIMALIST "SPLIT" THEME */
+
 :root {
-    --primary: #4a90e2;
-    --dark: #1e1e2f;
-    --card-bg: #27293d;
-    --text: #ffffff;
+    --sidebar-bg: #1e1e24;
+    /* Dark Gunmetal */
+    --main-bg: #ffffff;
+    --accent: #4cc9f0;
+    /* Bright Cyan for buttons/highlights */
+    --text-muted: #8d99ae;
+    --text-dark: #2b2d42;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: var(--dark);
-    color: var(--text);
     margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    /* Clean system font */
+    background-color: #edf2f4;
+    /* Light grey background for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 900px;
     padding: 20px;
 }
 
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    text-align: center;
+/* THE MAIN CARD CONTAINER */
+.dashboard-card {
+    display: flex;
+    background-color: var(--main-bg);
+    border-radius: 20px;
+    overflow: hidden;
+    /* Ensures child elements don't spill out */
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+    /* Soft, "expensive" shadow */
+    min-height: 550px;
 }
 
-/* Button */
-.main-btn {
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    background-color: var(--primary);
+/* --- LEFT SIDE (SIDEBAR) --- */
+.sidebar {
+    flex: 1;
+    /* Takes up 30-40% of width */
+    background-color: var(--sidebar-bg);
     color: white;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    transition: transform 0.2s;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    min-width: 250px;
+}
+
+.logo {
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    opacity: 0.5;
+    margin-bottom: auto;
+    /* Pushes content to center */
+}
+
+#user-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 20px;
 }
 
-.main-btn:hover {
-    transform: scale(1.05);
+#user-name {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-/* Layout */
-.top-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
+.user-subtitle {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-top: 5px;
     margin-bottom: 30px;
 }
 
-.card {
-    background-color: var(--card-bg);
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    flex: 1;
-    min-width: 300px;
-    text-align: left;
+.mini-stat {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
 }
 
-/* User Card Specifics */
-.user-card img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 3px solid var(--primary);
+.mini-stat label {
     display: block;
-    margin: 0 auto 15px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 1px;
+    margin-bottom: 5px;
 }
 
-/* Exchange Rate Box */
-.rate-box {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 10px;
-    border-radius: 8px;
-    margin-top: 10px;
+.mini-stat p {
+    margin: 0;
+    font-size: 0.95rem;
 }
 
-/* News Grid */
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+/* The Button */
+#fetch-btn {
+    margin-top: auto;
+    /* Pushes to bottom */
+    background-color: var(--accent);
+    color: var(--text-dark);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    width: 100%;
+}
+
+#fetch-btn:hover {
+    transform: scale(1.05);
+}
+
+/* --- RIGHT SIDE (CONTENT) --- */
+.content-area {
+    flex: 2;
+    /* Takes up 60-70% of width */
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Info Header */
+.top-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 30px;
     gap: 20px;
 }
 
-.news-card {
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    overflow: hidden;
-    text-align: left;
-    transition: transform 0.2s;
+.label {
+    display: block;
+    font-size: 0.7rem;
+    color: #aaa;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
-.news-card:hover {
-    transform: translateY(-5px);
+#country-name {
+    margin: 0;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    line-height: 1;
 }
 
-.news-card img {
-    width: 100%;
-    height: 150px;
+/* Rate Grid */
+.rate-block {
+    text-align: right;
+}
+
+.rate-grid {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-end;
+}
+
+.rate-item {
+    background: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.rate-item span {
+    display: block;
+    font-size: 0.7rem;
+    color: #aaa;
+}
+
+.rate-item strong {
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+}
+
+/* News List */
+.news-section h3 {
+    font-size: 0.9rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow-y: auto;
+    max-height: 300px;
+    /* Makes news scrollable if too long */
+}
+
+.news-item {
+    display: flex;
+    align-items: center;
+    /* Aligns text vertically */
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f0f0;
+    text-decoration: none;
+    color: var(--text-dark);
+    transition: background 0.2s;
+}
+
+.news-item:hover {
+    background-color: #fafafa;
+}
+
+.news-item img {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
     object-fit: cover;
 }
 
-.news-content {
-    padding: 15px;
+.news-text h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.95rem;
 }
 
-.news-content h3 {
-    font-size: 1rem;
-    margin-top: 0;
+.news-text p {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #888;
 }
 
-.news-content a {
-    color: var(--primary);
-    text-decoration: none;
-}
-
+/* Utilities */
 .hidden {
-    display: none;
+    display: none !important;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .dashboard-card {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        padding: 30px;
+        min-height: auto;
+    }
+
+    .top-row {
+        flex-direction: column;
+        text-align: left;
+    }
+
+    .rate-block {
+        text-align: left;
+    }
+
+    .rate-grid {
+        justify-content: flex-start;
+    }
 }

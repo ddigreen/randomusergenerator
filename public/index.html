@@ -4,55 +4,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Global User Dashboard</title>
+    <title>Identity Dashboard</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div class="container">
-        <header>
-            <h1>Global User Dashboard</h1>
-            <p>Integrated Data from 4 APIs</p>
-        </header>
 
-        <button id="fetch-btn" class="main-btn">Generate Random User</button>
-        <div id="loading" class="hidden">Fetching data across the globe...</div>
+    <div class="page-wrapper">
 
-        <div id="dashboard" class="hidden">
-            <div class="top-section">
-                <div class="card user-card">
-                    <h2>Random User</h2>
-                    <img id="user-img" src="" alt="User Profile">
-                    <div class="info-group">
-                        <p><strong>Name:</strong> <span id="user-name"></span></p>
-                        <p><strong>Gender:</strong> <span id="user-gender"></span></p>
-                        <p><strong>Age:</strong> <span id="user-age"></span> (<span id="user-dob"></span>)</p>
-                        <p><strong>Location:</strong> <span id="user-location"></span></p>
-                        <p><strong>Address:</strong> <span id="user-address"></span></p>
+        <div class="dashboard-card">
+
+            <aside class="sidebar">
+                <div class="logo">ID_VERIFIED</div>
+
+                <div id="loading" class="status-msg hidden">Searching...</div>
+
+                <div id="user-section" class="hidden">
+                    <img id="user-img" src="" alt="User">
+                    <h2 id="user-name">--</h2>
+                    <p class="user-subtitle"><span id="user-age">--</span> years • <span id="user-gender">--</span></p>
+
+                    <div class="mini-stat">
+                        <label>RESIDENCE</label>
+                        <p id="user-address">--</p>
+                    </div>
+
+                    <div class="mini-stat">
+                        <label>DOB</label>
+                        <p id="user-dob">--</p>
                     </div>
                 </div>
 
-                <div class="card country-card">
-                    <h2>Country & Currency</h2>
-                    <p><strong>Country:</strong> <span id="country-name"></span></p>
-                    <p><strong>Capital:</strong> <span id="country-capital"></span></p>
-                    <p><strong>Language:</strong> <span id="country-lang"></span></p>
+                <button id="fetch-btn">GENERATE NEW IDENTITY</button>
+            </aside>
 
-                    <hr>
-                    <h3>Exchange Rates</h3>
-                    <p>Base: 1 <span id="base-curr"></span></p>
-                    <div class="rate-box">
-                        <p>🇺🇸 <span id="rate-usd"></span> USD</p>
-                        <p>🇰🇿 <span id="rate-kzt"></span> KZT</p>
+            <main class="content-area hidden" id="main-content">
+
+                <div class="top-row">
+                    <div class="info-block">
+                        <span class="label">DETECTED LOCATION</span>
+                        <h1 id="country-name">--</h1>
+                        <p id="country-capital">Capital City</p>
+                    </div>
+                    <div class="rate-block">
+                        <span class="label">EXCHANGE RATE (<span id="base-curr">--</span>)</span>
+                        <div class="rate-grid">
+                            <div class="rate-item">
+                                <span>USD</span>
+                                <strong id="rate-usd">--</strong>
+                            </div>
+                            <div class="rate-item">
+                                <span>KZT</span>
+                                <strong id="rate-kzt">--</strong>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="news-section">
-                <h2>Local News Headlines</h2>
-                <div id="news-container" class="news-grid">
+                <div class="news-section">
+                    <h3>LOCAL HEADLINES</h3>
+                    <div id="news-container" class="news-list">
+                    </div>
                 </div>
-            </div>
+
+            </main>
         </div>
     </div>
 
